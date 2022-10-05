@@ -1,8 +1,7 @@
 import express from 'express'
-import { Router, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 const {randomUUID} = require('crypto');
-const { append } = require('express/lib/response');
 const { check, validationResult } = require("express-validator");
 
 const app = express();
@@ -80,7 +79,7 @@ app.get("/booksSummary",(request: Request, response: Response) => {
 });
 
 app.get("/booksTotalStock", ( request: Request, response: Response) => {
-    const totalStock : number = books.reduce(( acc, book ) => ( acc + book.stock ), 0); 
+    const totalStock : number = books.reduce(( acc, book ) => ( acc + (book?.stock || 0) ), 0); 
 
     return response.json({ "Total" : totalStock });
 });
