@@ -36,4 +36,4 @@ Delete dados de um livro
 Informa o total de livros em estoque
 
 *GET /booksSummary*  
-Retorna um pequeno resumo com todas informações so livro
+Retorna um pequeno resumo com todas informações do livro
